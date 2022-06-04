@@ -114,64 +114,6 @@ let entities = {
 
 }
 
-const mouse = {
-    x: 0,
-    y: 0
-}
-
-/*canvas.onmousemove = event => {
-    mouse.x = event.offsetX
-    mouse.y = event.offsetY
-}
-
-canvas.onclick = () => {
-    let x = floorToMul(mouse.x, tileSize)
-    let y = floorToMul(mouse.y, tileSize)
-    const collision = getCollision({
-        x: x,
-        y: y
-    }, walls)
-    if (collision) {
-        walls.splice(walls.indexOf(collision), 1)
-        return
-    }
-    if (getCollision({
-        x: x,
-        y: y
-    }, carrots)) {
-        return
-    }
-    walls.push({
-        x: x,
-        y: y,
-    })
-}*/
-
-function randomCarrot() {
-    let colliding = true
-    let x, y
-    while (colliding) {
-        colliding = false
-        x = floorToMul(Math.random() * canvas.width, tileSize)
-        y = floorToMul(Math.random() * canvas.height, tileSize)
-        const result = getCollision({
-            x: x,
-            y: y
-        }, carrots.concat(walls, Object.values(entities)))
-        if (result) {
-            colliding = true
-            break
-        }
-    }
-    carrots.push({
-        x: x,
-        y: y
-    })
-}
-
-/*for (let i = 0; i < 160; i++) {
-    randomCarrot()
-}*/
 
 setInterval(() => {
     for (let e of Object.values(entities)) {
