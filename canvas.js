@@ -11,7 +11,7 @@ function floorToMul(num, mul) {
     return Math.floor(num / mul) * mul
 }
 
-const carrotsprite = newImage("images/carrot.png")
+const carrotsprite = newImage("images/porkkana_lapinakyva.png")
 let carrots = []
 const wallsprite = newImage("images/wall.png")
 let walls = []
@@ -167,7 +167,7 @@ function randomCarrot() {
     })
 }
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 160; i++) {
     randomCarrot()
 }
 
@@ -192,10 +192,10 @@ setInterval(() => {
             let sprites
             if (args[3] == "bunny") {
                 sprites = {
-                    up: newImage("images/rabbitup.png"),
-                    down: newImage("images/rabbitdown.png"),
-                    left: newImage("images/rabbitleft.png"),
-                    right: newImage("images/rabbitright.png"),
+                    up: newImage("images/pupu_takaa_lapinakyva.png"),
+                    down: newImage("images/pupu_edesta_lapinakyva.png"),
+                    left: newImage("images/pupu_sivusta_lapinakyva2.png"),
+                    right: newImage("images/pupu_sivusta_lapinakyva.png"),
                 }
             } else if (args[3] == "cat") {
                 sprites = {
