@@ -19,6 +19,7 @@ let path = []
 let cmds = []
 let points = 0
 let allCarrots = 0
+let level = 1
 
 function getCollision(object, objects) {
     for (let o of objects) {
@@ -236,6 +237,11 @@ function reset() {
     createMap();
 }
 
+function setLevel(what) {
+    level = what
+    reset()
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -299,9 +305,11 @@ function draw() {
     }
     ctx.fillStyle = "white"
     ctx.font = '48px arial';
-    ctx.textAlign = "right"
+    ctx.textAlign = "left"
     ctx.textBaseline = "bottom";
-    ctx.fillText(points + " / " + allCarrots, canvas.width - 50, canvas.height - 10);
+    ctx.fillText("Taso " + level, 0, canvas.height);
+    ctx.textAlign = "right"
+    ctx.fillText(points + " / " + allCarrots, canvas.width, canvas.height);
 
 
 
