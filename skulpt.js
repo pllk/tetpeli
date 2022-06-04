@@ -52,6 +52,11 @@ class Pupu(_Entity):
         console.log('success');
     },
         function (err) {
+            let offset = 29
+            let parts = err.toString().split(" ")
+            let count = parts.length
+            parts[count-1] -= offset
+            alert(parts.join(" "));
             console.log(err.toString());
         });
 }
