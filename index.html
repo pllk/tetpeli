@@ -42,14 +42,12 @@
     <div class="flexbox">
         <div class="editor-div">
             <script type="text/javascript" src="skulpt.js"></script>
-            <div id="editor">pupu=Bunny(0, 0)
-kissa=Cat(5, 5)
-pupu.move("right")
-pupu.say("something")
-for i in range(10):
-    pupu.move("down")
-    pupu.move("right")
-    kissa.move("left")</div>
+            <div id="editor">pallero = Pupu()
+pallero.liiku("oikea")
+pallero.liiku("alas")
+pallero.liiku("vasen")
+pallero.liiku("ylös")
+</div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" type="text/javascript"
                 charset="utf-8">
 
@@ -65,8 +63,8 @@ for i in range(10):
             </script>
             <div>
                 <button type=button onclick="reset(); runit()">Suorita</button>
-                <button type=button onclick="path=[]">Pyyhi</button>
-                <button type=button onclick="cmds=[]">Pysäytä</button>
+                <!--<button type=button onclick="path=[]">Pyyhi</button>-->
+                <!--<button type=button onclick="cmds=[]">Pysäytä</button>-->
             </div>
 
         </div>

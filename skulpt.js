@@ -22,6 +22,12 @@ class _Entity:
         print(f"move:{self.id},{dir}")
     def say(self, text):
         print(f"say:{self.id},{text}")
+    def liiku(self, dir):
+        if dir == "ylös": dir = "up"
+        if dir == "alas": dir = "down"
+        if dir == "vasen": dir = "left"
+        if dir == "oikea": dir = "right"
+        print(f"move:{self.id},{dir}")
 
 class Bunny(_Entity):
     def __init__(self, x, y):
@@ -29,6 +35,9 @@ class Bunny(_Entity):
 class Cat(_Entity):
     def __init__(self, x, y):
         super().__init__(x, y, "cat")
+class Pupu(_Entity):
+    def __init__(self):
+        super().__init__(0, 0, "bunny")
     
     \n` + editor.getValue();
     Sk.configure({

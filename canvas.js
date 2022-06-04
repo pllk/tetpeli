@@ -13,11 +13,12 @@ function floorToMul(num, mul) {
 
 const carrotsprite = newImage("images/porkkana_lapinakyva.png")
 let carrots = []
-const wallsprite = newImage("images/wall.png")
+const wallsprite = newImage("images/Kivi3.png")
 let walls = []
 let path = []
 let cmds = []
 let points = 0
+let allCarrots = 0
 
 function getCollision(object, objects) {
     for (let o of objects) {
@@ -54,10 +55,10 @@ class Entity {
             }
             if (this.y == this.ty && this.x == this.tx) {
                 this.isMoving = false
-                path.push({
+                /*path.push({
                     x: this.x,
                     y: this.y,
-                })
+                })*/
             }
         }
         const collision = getCollision(this, carrots)
@@ -117,7 +118,7 @@ const mouse = {
     y: 0
 }
 
-canvas.onmousemove = event => {
+/*canvas.onmousemove = event => {
     mouse.x = event.offsetX
     mouse.y = event.offsetY
 }
@@ -143,7 +144,7 @@ canvas.onclick = () => {
         x: x,
         y: y,
     })
-}
+}*/
 
 function randomCarrot() {
     let colliding = true
@@ -167,9 +168,9 @@ function randomCarrot() {
     })
 }
 
-for (let i = 0; i < 160; i++) {
+/*for (let i = 0; i < 160; i++) {
     randomCarrot()
-}
+}*/
 
 setInterval(() => {
     for (let e of Object.values(entities)) {
@@ -216,10 +217,23 @@ function addCmd(cmd) {
     cmds.push(cmd)
 }
 
+createMap();
+
+function createMap() {
+    carrots = []
+    carrots.push({x:5*tileSize, y:5*tileSize})
+    allCarrots = carrots.length
+    walls = []
+    walls.push({x:3*tileSize, y:0*tileSize})
+    walls.push({x:0*tileSize, y:3*tileSize})
+}
+
 
 function reset() {
+    points = 0;
     cmds = []
     entities = {}
+    createMap();
 }
 
 function draw() {
@@ -287,7 +301,7 @@ function draw() {
     ctx.font = '48px arial';
     ctx.textAlign = "right"
     ctx.textBaseline = "bottom";
-    ctx.fillText(points + "/10", 125, canvas.height - 10);
+    ctx.fillText(points + " / " + allCarrots, canvas.width - 50, canvas.height - 10);
 
 
 
