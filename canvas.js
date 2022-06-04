@@ -162,13 +162,58 @@ function addCmd(cmd) {
 
 createMap();
 
+function createCarrot(x, y) {
+    carrots.push({x:x*tileSize, y:y*tileSize})
+}
+
+function createWall(x, y) {
+    walls.push({x:x*tileSize, y:y*tileSize})
+}
+
 function createMap() {
     carrots = []
-    carrots.push({x:5*tileSize, y:5*tileSize})
-    allCarrots = carrots.length
     walls = []
-    walls.push({x:3*tileSize, y:0*tileSize})
-    walls.push({x:0*tileSize, y:3*tileSize})
+    
+    if (level == 1) {
+        createCarrot(3, 0)
+    }
+    if (level == 2) {
+        createCarrot(2, 4)
+    }
+    if (level == 3) {
+        createCarrot(15, 10)
+    }
+    if (level == 4) {
+        for (var i = 1; i < 10; i++) {
+            createCarrot(i, 0)
+        }
+    }
+    if (level == 5) {
+        for (var i = 1; i < 10; i++) {
+            createCarrot(i, i)
+        }
+    }
+    if (level == 6) {
+        for (var i = 1; i < 10; i++) {
+            for (var j = 1; j < 10; j++) {
+                createCarrot(i, j)
+            }
+        }
+    }
+    if (level == 7) {
+    }
+    if (level == 8) {
+    }
+    if (level == 9) {
+    }
+    if (level == 10) {
+    }
+    if (level == 11) {
+    }
+    if (level == 12) {
+    }
+    
+    allCarrots = carrots.length    
 }
 
 
