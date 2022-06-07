@@ -22,6 +22,7 @@ let allCarrots = 0
 let level = 1
 let steps = 0
 let first = false
+let gameover = false
 
 function getCollision(object, objects) {
     for (let o of objects) {
@@ -161,7 +162,7 @@ setInterval(() => {
         }
 
     }
-}, 500)
+}, 250)
 
 function addCmd(cmd) {
     cmds.push(cmd)
@@ -283,6 +284,7 @@ function reset() {
     entities[0] = new Entity(0, 0, sprites)
     steps = 0
     first = true
+    gameover = false
 }
 
 function setLevel(what) {
@@ -358,7 +360,12 @@ function draw() {
     ctx.fillText("Taso: " + level, 0, canvas.height);
     ctx.fillText("Jäljellä: " + (allCarrots - points), 180, canvas.height);
     ctx.fillText("Askeleet: " + steps, 420, canvas.height);
-
+    if (points == allCarrots && !gameover) {
+        alert("Hienoa, sait kerättyä kaikki porkkanat!")
+        gameover = true
+    }
+    
+    
     requestAnimationFrame(draw)
 }
 
