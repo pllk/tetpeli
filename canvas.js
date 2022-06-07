@@ -96,10 +96,16 @@ class Entity {
             return
         }
 
-        this.tx = x
-        this.ty = y
-        this.isMoving = true
+        this.tx = this.x = x
+        this.ty = this.y = y
+        // this.isMoving = true
         steps++
+        const collision = getCollision(this, carrots)
+        if (collision) {
+            carrots.splice(carrots.indexOf(collision), 1)
+            points += 1
+        }
+
     }
 
     say(text) {
@@ -117,12 +123,6 @@ let entities = {
 
 }
 
-
-setInterval(() => {
-    for (let e of Object.values(entities)) {
-        e.update()
-    }
-})
 setInterval(() => {
     if (cmds.length != 0) {
         const command = cmds[0].split(":")
