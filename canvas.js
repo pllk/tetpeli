@@ -242,7 +242,7 @@ function createMap() {
     }
     if (level == 11) {
         for (var i = 0; i < 16; i++) {
-            for (var j = 0; j < 16; j++) {
+            for (var j = 0; j < 11; j++) {
                 if (i == 0 && j == 0) continue;
                 if (i%2 == 0 && j%2 == 0) createWall(i, j)
                 else createCarrot(i, j)
