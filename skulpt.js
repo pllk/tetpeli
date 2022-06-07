@@ -11,11 +11,11 @@ function builtinRead(x) {
 }
 
 function runit() {
-    let lines = editor.getValue().split("\n").length
+    /*let lines = editor.getValue().split("\n").length
     if (lines > 10) {
         alert("Koodi on liian pitkä!")
         return
-    }
+    }*/
 
     var prog = `
 class _Entity:
