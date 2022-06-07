@@ -357,7 +357,7 @@ function draw() {
     ctx.textBaseline = "bottom";
     ctx.fillText("Taso: " + level, 0, canvas.height);
     ctx.fillText("Jäljellä: " + (allCarrots - points), 180, canvas.height);
-    ctx.fillText("Askeleet: " + steps, 400, canvas.height);
+    ctx.fillText("Askeleet: " + steps, 420, canvas.height);
 
     requestAnimationFrame(draw)
 }
