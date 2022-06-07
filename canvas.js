@@ -160,7 +160,7 @@ function addCmd(cmd) {
     cmds.push(cmd)
 }
 
-createMap();
+setLevel(1)
 
 function createCarrot(x, y) {
     carrots.push({x:x*tileSize, y:y*tileSize})
@@ -221,7 +221,14 @@ function reset() {
     points = 0;
     cmds = []
     entities = {}
-    createMap();
+    createMap()
+    let sprites = {
+                up: newImage("images/pupu_takaa_lapinakyva.png"),
+                down: newImage("images/pupu_edesta_lapinakyva.png"),
+                left: newImage("images/pupu_sivusta_lapinakyva2.png"),
+                right: newImage("images/pupu_sivusta_lapinakyva.png"),
+    }
+    entities[0] = new Entity(0, 0, sprites)
 }
 
 function setLevel(what) {

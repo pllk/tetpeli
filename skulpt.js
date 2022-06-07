@@ -38,8 +38,8 @@ class Cat(_Entity):
 class Pupu(_Entity):
     def __init__(self):
         super().__init__(0, 0, "bunny")
-    
-    \n` + editor.getValue();
+
+pallero = Pupu()\n` + editor.getValue();
     Sk.configure({
         output: outf,
         read: builtinRead,
