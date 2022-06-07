@@ -188,36 +188,81 @@ function createMap() {
         createCarrot(2, 4)
     }
     if (level == 3) {
-        createCarrot(15, 10)
-    }
-    if (level == 4) {
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 6; i++) {
             createCarrot(i, 0)
         }
     }
+    if (level == 4) {
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                if (i == 0 && j == 0) continue
+                createCarrot(i, j)
+            }
+        }
+    }
     if (level == 5) {
-        for (var i = 1; i < 10; i++) {
+        for (var i = 0; i < 4; i++) {
+            createWall(1,i)
+        }
+        createCarrot(2,0)
+    }
+    if (level == 6) {
+        for (var i = 1; i < 16; i++) {
+            createCarrot(i, 0)
+        }
+    }
+    if (level == 7) {
+        for (var i = 1; i < 11; i++) {
+            createCarrot(i, i - 1)
             createCarrot(i, i)
         }
     }
-    if (level == 6) {
+    if (level == 8) {
+        for (var i = 1; i < 16; i++) {
+            createCarrot(i, 0)
+            if (i%2 == 0) createCarrot(i, 1)
+        }
+    }
+    if (level == 9) {
+        for (var i = 1; i < 16; i++) {
+            createCarrot(i, 0)
+            createCarrot(i, 10)
+        }
+        for (var i = 1; i < 11; i++) {
+            createCarrot(0, i)
+            if (i != 10) createCarrot(15, i)
+        }
+    }
+    if (level == 10) {
         for (var i = 1; i < 10; i++) {
             for (var j = 1; j < 10; j++) {
                 createCarrot(i, j)
             }
         }
     }
-    if (level == 7) {
-    }
-    if (level == 8) {
-    }
-    if (level == 9) {
-    }
-    if (level == 10) {
-    }
     if (level == 11) {
+        for (var i = 0; i < 16; i++) {
+            for (var j = 0; j < 16; j++) {
+                if (i == 0 && j == 0) continue;
+                if (i%2 == 0 && j%2 == 0) createWall(i, j)
+                else createCarrot(i, j)
+            }
+        }
     }
     if (level == 12) {
+        for (var i = 0; i < 15; i++) createWall(i, 1)
+        for (var i = 2; i < 9; i++) createWall(14, i)
+        for (var i = 0; i < 16; i++) createWall(i, 10)
+        for (var i = 2; i < 15; i++) createWall(i, 8)
+        for (var i = 2; i < 10; i++) createWall(0, i)
+        for (var i = 3; i < 8; i++) createWall(2, i)
+        for (var i = 3; i < 13; i++) createWall(i, 3)
+        for (var i = 4; i < 7; i++) createWall(12, i)
+        for (var i = 3; i < 11; i++) {
+            for (var j = 4; j < 7; j++) {
+                createCarrot(i, j)
+            }
+        }
     }
     
     allCarrots = carrots.length    
