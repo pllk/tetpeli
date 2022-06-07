@@ -20,6 +20,8 @@ let cmds = []
 let points = 0
 let allCarrots = 0
 let level = 1
+let steps = 0
+let first = false
 
 function getCollision(object, objects) {
     for (let o of objects) {
@@ -97,6 +99,7 @@ class Entity {
         this.tx = x
         this.ty = y
         this.isMoving = true
+        steps++
     }
 
     say(text) {
@@ -133,6 +136,10 @@ setInterval(() => {
             entities[args[0]].say(args[1])
         }
         if (type == "addEntity") {
+            if (first) {
+                first = false
+                entities = {}
+            }
             let sprites
             if (args[3] == "bunny") {
                 sprites = {
@@ -223,12 +230,14 @@ function reset() {
     entities = {}
     createMap()
     let sprites = {
-                up: newImage("images/pupu_takaa_lapinakyva.png"),
-                down: newImage("images/pupu_edesta_lapinakyva.png"),
-                left: newImage("images/pupu_sivusta_lapinakyva2.png"),
-                right: newImage("images/pupu_sivusta_lapinakyva.png"),
+        up: newImage("images/pupu_takaa_lapinakyva.png"),
+        down: newImage("images/pupu_edesta_lapinakyva.png"),
+        left: newImage("images/pupu_sivusta_lapinakyva2.png"),
+        right: newImage("images/pupu_sivusta_lapinakyva.png"),
     }
     entities[0] = new Entity(0, 0, sprites)
+    steps = 0
+    first = true
 }
 
 function setLevel(what) {
@@ -298,14 +307,12 @@ function draw() {
         }
     }
     ctx.fillStyle = "white"
-    ctx.font = '48px arial';
+    ctx.font = '42px arial';
     ctx.textAlign = "left"
     ctx.textBaseline = "bottom";
-    ctx.fillText("Taso " + level, 0, canvas.height);
-    ctx.textAlign = "right"
-    ctx.fillText(points + " / " + allCarrots, canvas.width, canvas.height);
-
-
+    ctx.fillText("Taso: " + level, 0, canvas.height);
+    ctx.fillText("Porkkanat: " + (allCarrots - points), 180, canvas.height);
+    ctx.fillText("Askeleet: " + steps, 460, canvas.height);
 
     requestAnimationFrame(draw)
 }
