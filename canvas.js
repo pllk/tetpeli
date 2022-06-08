@@ -265,8 +265,55 @@ function createMap() {
             }
         }
     }
-    
-    allCarrots = carrots.length    
+    if (level == 13) {
+        for (var i = 0; i <= 15; i++) {
+            if (i != 0) createCarrot(i, 0);
+            createCarrot(i, 11);
+            if (i >= 2 && i <= 13) {
+                createCarrot(i, 2);
+                createCarrot(i, 9);
+            }
+            if (i >= 4 && i <= 11) {
+                createCarrot(i, 4);
+                createCarrot(i, 7);
+            }
+        }
+        for (var i = 1; i <= 10; i++) {
+            createCarrot(0, i);
+            createCarrot(15, i);
+            if (i >= 3 && i <= 8) {
+                createCarrot(2, i);
+                createCarrot(13, i);
+            }
+            if (i >= 5 && i <= 6) {
+                createCarrot(4, i);
+                createCarrot(11, i);
+            }
+        }
+        for (var i = 1; i <= 14; i++) {
+            createWall(i, 1);
+            createWall(i, 10);
+            if ((i >= 3 && i <= 6) || (i >= 9 && i <= 12)) {
+                createWall(i, 3);
+                createWall(i, 8);
+            }
+            if (i >= 5 && i <= 10) {
+                createWall(i, 5);
+                createWall(i, 6);
+            }
+        }
+        for (var i = 2; i <= 9; i++) {
+            if (i <= 4 || i >= 7) {
+                createWall(1, i);
+                createWall(14, i);
+            }
+            if (i >= 4 && i <= 7) {
+                createWall(3, i);
+                createWall(12, i);
+            }
+        }
+    }
+    allCarrots = carrots.length
 }
 
 
